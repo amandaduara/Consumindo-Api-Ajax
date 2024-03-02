@@ -22,4 +22,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCors(options => options
+    .AllowAnyOrigin()           // Permite qualquer origem
+    .AllowAnyMethod()           // Permite qualquer método HTTP (GET, POST, etc.)
+    .AllowAnyHeader());         // Permite qualquer  cabeçalho HTTP
+
 app.Run();
