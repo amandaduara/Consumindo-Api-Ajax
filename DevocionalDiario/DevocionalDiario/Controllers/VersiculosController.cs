@@ -11,8 +11,10 @@ namespace DevocionalDiario.Controllers
         private readonly ILogger<VersiculosController> _logger;
         private const string StringBD = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MeuVersiculo;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
+        public VersiculosController(ILogger<VersiculosController> logger) { _logger = logger; }
+
         [HttpGet(Name = "GetVersiculo")]
-        public IEnumerable<Versiculos> GetDevocional()
+        public IEnumerable<Versiculos> GetVersiculo()
         {
             List<Versiculos> versiculos = new List<Versiculos>();
 
@@ -42,8 +44,39 @@ namespace DevocionalDiario.Controllers
             }
 
             return versiculos;
-
         }
 
+        [HttpGet("Random", Name = "GetRandomVersiculo")]
+        public IActionResult GetRandomVersiculo()
+        {
+            using (SqlConnection connection = new SqlConnection(StringBD))
+            {
+                string query = "SELECT TOP 1 Id, Livro, Capitulo, Versiculo, Texto FROM Versiculos ORDER BY NEWID()";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Versiculos randomVersiculo = new Versiculos
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Livro = reader["Livro"].ToString(),
+                        Capitulo = Convert.ToInt32(reader["Capitulo"]),
+                        Versiculo = Convert.ToInt32(reader["Versiculo"]),
+                        Texto = reader["Texto"].ToString()
+                    };
+
+                    reader.Close();
+                    return Ok(randomVersiculo);
+                }
+                else
+                {
+                    reader.Close();
+                    return NotFound();
+                }
+            }
+        }
     }
 }
