@@ -38,8 +38,8 @@
                         <div class="carousel-caption">
                             <div class="p-3" style="max-width: 900px;">
                                 <h1 class="display-1 text-capitalize text-dark mb-3">Meu Versículo</h1>
-                                <p class="mx-md-5 fs-4 px-4 mb-5 text-dark" id="carregarVersiculo"> <!-- o vrsículo será gerado aqui --></p>
-                                
+                                <p class="mx-md-5 fs-4 px-4 mb-5 text-dark" id="carregarNomeVersiculo"> <!-- o nome do versículo será gerado aqui --></p>
+                                <p class="mx-md-5 fs-4 px-4 mb-5 text-dark" id="carregarVersiculo"> <!-- o versículo será gerado aqui --> </p>
                                 <p class="mx-md-5 fs-4 px-4 mb-5 text-dark" id="procurando"> Procurando o melhor versículo para você...</p>
 
                                 <div class="d-flex align-items-center justify-content-center">
@@ -84,10 +84,12 @@
                         console.log(data);
         
                         // Limpa o conteúdo atual
+                        $('#carregarNomeVersiculo').empty();
                         $('#carregarVersiculo').empty();
         
                         // Adiciona o versículo aleatório como uma nova linha no elemento com o id 'conteudo'
-                        $('#carregarVersiculo').append('Livro: ' + data.livro + ' - Capítulo: ' + data.capitulo + ' - Versículo: ' + data.versiculo + ' ' +  data.texto);
+                        $('#carregarNomeVersiculo').append('Versículo: ' + data.livro + " "+ data.capitulo + " - " + data.versiculo + "<br/>");
+                        $('#carregarVersiculo').append(data.texto);
         
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
