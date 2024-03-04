@@ -71,7 +71,8 @@
 
 .btn-light-outline-0 {
     border: 0;
-    color: var(--bs-primary) !important;
+    color: #000000 !important;
+    background: #ffd6db;
 }
 
 .btn-primary-outline-0:hover {
@@ -80,8 +81,8 @@
 }
 
 .btn-light-outline-0:hover {
-    background: var(--bs-secondary) !important;
-    color: var(--bs-white) !important;
+    background: #000000 !important;
+    color: #b2ffee !important;
 }
 
 /*** Topbar Start ***/
