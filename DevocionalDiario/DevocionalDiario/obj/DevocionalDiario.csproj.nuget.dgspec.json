@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj": {}
+    "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\Consumindo-Api-Ajax\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj": {}
   },
   "projects": {
-    "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj": {
+    "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\Consumindo-Api-Ajax\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj",
+        "projectUniqueName": "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\Consumindo-Api-Ajax\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj",
         "projectName": "DevocionalDiario",
-        "projectPath": "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj",
+        "projectPath": "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\Consumindo-Api-Ajax\\DevocionalDiario\\DevocionalDiario\\DevocionalDiario.csproj",
         "packagesPath": "C:\\Users\\claud\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\DevocionalDiario\\DevocionalDiario\\obj\\",
+        "outputPath": "C:\\Users\\claud\\Documents\\CursosProgramacao\\MeusPojetos\\Consumindo-Api-Ajax\\DevocionalDiario\\DevocionalDiario\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\claud\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
