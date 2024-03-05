@@ -32,7 +32,7 @@
                                 <p class="mx-md-5 fs-4 px-4 mb-5 text-dark" id="procurando"> Procurando o melhor versículo para você...</p>
 
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <a class="btn btn-light btn-light-outline-0 rounded-pill py-3 px-5 me-4" onclick="chamarVersiculo()">Gerar um versículo para mim</a>
+                                    <a class="btn btn-light btn-light-outline-0 rounded-pill py-3 px-5 me-4" id="gerarNovo">Gerar um versículo para mim</a>
                                 </div>
                             </div>
                         </div>
@@ -55,49 +55,5 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
-    <!-- script para requisição assíncrona AJAX-->
-    <script>
-        function chamarVersiculo(){
-            $(document).ready(function() {
-            // Função para fazer a requisição assíncrona usando AJAX
-            function VersículoAleatorio() {
-                // Exibir mensagem de "carregando"
-                $('#procurando').show();
-        
-                // Fazer a requisição AJAX para obter um versículo aleatório
-                $.ajax({
-                    url: 'https://localhost:7282/Versiculos/Aleatorio', // Adjust the endpoint to fetch a random verse
-                    method: 'GET',
-                    success: function(data) {
-                        console.log(data);
-        
-                        // Limpa o conteúdo atual
-                        $('#carregarNomeVersiculo').empty();
-                        $('#carregarVersiculo').empty();
-        
-                        // Adiciona o versículo aleatório como uma nova linha no elemento com o id 'conteudo'
-                        $('#carregarNomeVersiculo').append(data.livro + ' ' + data.capitulo + ' - ' + data.versiculo + '<br/>');
-                        $('#carregarVersiculo').append(data.texto);
-        
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        // Houve um erro na requisição
-                        console.error('Erro na requisição: ' + textStatus);
-                        console.error('Detalhes do erro: ' +  errorThrown);
-                    },
-                    complete: function() {
-                        // Esconder a mensagem de "carregando" após a conclusão da requisição
-                        $('#procurando').hide();
-                    }
-                });
-            }
-        
-            // Chamar a função para carregar um versículo aleatório quando a página estiver pronta
-            VersículoAleatorio();
-            });
-        }
-        </script>
-    </body>
 
 </html>

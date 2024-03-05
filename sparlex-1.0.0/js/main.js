@@ -135,3 +135,45 @@
 
 })(jQuery);
 
+// script para requisição assíncrona AJAX
+    
+    $(document).ready(function() {
+    function VersiculoAleatorio() {
+        $('#procurando').show();
+
+        $.ajax({
+            url: 'https://localhost:7282/Versiculos/Aleatorio', 
+            method: 'GET',
+            success: function(data) {
+                console.log(data);
+
+                // Limpa o conteúdo atual
+                $('#carregarNomeVersiculo').empty();
+                $('#carregarVersiculo').empty();
+
+                // Adiciona o versículo e o texto aleatorio
+                $('#carregarNomeVersiculo').append(data.livro + ' ' + data.capitulo + ' - ' + data.versiculo + '<br/>');
+                $('#carregarVersiculo').append(data.texto);
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                // Houve um erro na requisição
+                console.error('Erro na requisição: ' + textStatus);
+                console.error('Detalhes do erro: ' +  errorThrown);
+            },
+            complete: function() {
+                // Esconder a mensagem de "carregando" após a conclusão da requisição
+                $('#procurando').hide();
+            }
+        });
+    }
+
+    // Chamar a função para carregar um versículo aleatório quando a página estiver pronta
+    VersiculoAleatorio();
+
+    $('#gerarNovo').on('click', function() {
+        VersiculoAleatorio();
+    });
+    });
+
+
