@@ -1,0 +1,18 @@
+Create database MeuVersiculo;
+
+CREATE TABLE Versiculos (
+    Id        INT         PRIMARY KEY IDENTITY (1, 1) NOT NULL,
+    Livro     VARCHAR (30) NOT NULL,
+    Capitulo  INT          NOT NULL,
+    Versiculo INT          NOT NULL,
+    Texto     TEXT         NOT NULL,
+);
+
+Use MeuVersiculo;
+INSERT INTO Versiculos (Livro, Capitulo, Versiculo, Texto)
+VALUES
+('Josué', 1, 9, '"Não fui eu que ordenei a você? Seja forte e corajoso! Não se apavore nem desanime, pois o Senhor, o seu Deus, estará com você por onde você andar"'),
+('João', 16, 33, '"Eu disse essas coisas para que em mim vocês tenham paz. Neste mundo vocês terão aflições; contudo, tenham ânimo! Eu venci o mundo"),
+('Provérbios', 16, 3, '"Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos."'),
+('Cânticos', 4, 7, '"Você é toda linda, minha querida; em você não há defeito algum."'),
+('João', 14, 6, '"Respondeu Jesus: "Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai, a não ser por mim."');

@@ -46,7 +46,7 @@ namespace DevocionalDiario.Controllers
             return versiculos;
         }
 
-        [HttpGet("Random", Name = "GetRandomVersiculo")]
+        [HttpGet("Aleatorio", Name = "GetVersiculoAleatorio")]
         public IActionResult GetRandomVersiculo()
         {
             using (SqlConnection connection = new SqlConnection(StringBD))
